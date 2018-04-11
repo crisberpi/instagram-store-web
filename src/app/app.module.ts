@@ -14,7 +14,8 @@ import { LoginComponent } from './components/misc/login/login.component';
 
 import { SessionService } from './shared/services/session.service';
 import { UsersService } from './shared/services/users.service';
-
+import { ShopsService } from './shared/services/shops.service';
+import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { UsersService } from './shared/services/users.service';
     NavBarComponent,
     SignupComponent,
     LoginComponent,
+    ShopListComponent,
 
   ],
   imports: [
@@ -34,6 +36,7 @@ import { UsersService } from './shared/services/users.service';
   providers: [
     UsersService,
     SessionService,
+    ShopsService,
   ],
   bootstrap: [AppComponent]
 })

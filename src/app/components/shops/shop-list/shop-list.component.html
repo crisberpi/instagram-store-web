@@ -1,0 +1,13 @@
+<div class="row">
+<a [routerLink]="['/shops/new']">
+  <i class="fa fa-plus"></i>
+</a>
+</div>
+<div class="row">
+  <div *ngFor="let shop of shops" class="shop col-xs-12 col-sm-3">
+    <img [src]="shop.image" />
+    <h3> {{ shop.name }} </h3>
+    <p> {{ shop.direction }} </p>
+    <a [routerLink]="['/shops', shop.id]"> View Details </a>
+  </div>
+</div>
