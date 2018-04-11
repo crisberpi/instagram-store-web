@@ -17,6 +17,7 @@ import { UsersService } from './shared/services/users.service';
 import { ShopsService } from './shared/services/shops.service';
 import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 import { ShopCreateComponent } from './components/shops/shop-create/shop-create.component';
+import { ShopBaseComponent } from './components/shops/shop-base/shop-base.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ShopCreateComponent } from './components/shops/shop-create/shop-create.
     LoginComponent,
     ShopListComponent,
     ShopCreateComponent,
+    ShopBaseComponent,
 
   ],
   imports: [
