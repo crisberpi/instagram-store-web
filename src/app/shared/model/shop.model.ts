@@ -2,6 +2,7 @@ export class Shop {
     id: string;
     direction: string;
     name: string;
+    list: string;
     image?: string;
     specs: Array<string> = new Array();
     products: Array<string> = new Array();

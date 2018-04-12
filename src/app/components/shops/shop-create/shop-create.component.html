@@ -19,7 +19,7 @@
         <div class="input-group">
           <span class="input-group-addon">
           </span>
-          <input type="text" name="direction" class="form-control" placeholder="Brand" [(ngModel)]="shop.direction" #direction="ngModel" required>
+          <input type="text" name="direction" class="form-control" placeholder="Direction" [(ngModel)]="shop.direction" #direction="ngModel" required>
         </div>
         <label class="control-label" *ngIf="direction.errors && direction.touched">
           <ul>
@@ -32,9 +32,21 @@
 
       <div class="form-group">
         <div class="input-group">
+          <span class="input-group-addon"></span>
+        </div>
+        <label for="list">Type</label>
+        <select class="form-control" id="list" [(ngModel)]="shop.list" name="list">
+          <option>Shop</option>
+          <option>Brand</option>
+        </select>
+
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
           <span class="input-group-addon">
           </span>
-          <input type="text" name="specs" class="form-control" placeholder="Spec" #spec>
+          <input type="text" name="specs" class="form-control" placeholder="Tags" #spec>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" (click)="addSpec(spec)"><i class="fa fa-plus"></i></button>
           </span>

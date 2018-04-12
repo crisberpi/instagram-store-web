@@ -3,11 +3,17 @@ import { Shop } from '../model/shop.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, RequestMethod } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject  } from 'rxjs/Rx';
 
 @Injectable()
 export class ShopsService extends BaseApiService {
   private static readonly SHOPS_API = `${BaseApiService.BASE_API}/shops`;
+
+  private shops: Array<Shop>;
+  private shopsSubject = new Subject<Array<Shop>>();
+
+  // Observable string streams
+  shops$: Observable<Array<Shop>> = this.shopsSubject.asObservable();
 
   constructor(private http: Http) {
     super();
