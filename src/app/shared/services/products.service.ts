@@ -13,6 +13,13 @@ export class ProductsService extends BaseApiService {
     super();
   }
 
+  index(): Observable<Array<Product>> {
+    return this.http.get(ProductsService.PRODUCTS_API, BaseApiService.defaultOptions)
+      .map((res: Response) => res.json())
+      .catch(error => this.handleError(error));
+  }
+
+
   list(): Observable<Array<Product>> {
     return this.http.get(ProductsService.PRODUCTS_API, BaseApiService.defaultOptions)
       .map((res: Response) => res.json())

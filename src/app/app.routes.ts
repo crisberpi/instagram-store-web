@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { SignupComponent } from './components/misc/signup/signup.component';
 import { LoginComponent } from './components/misc/login/login.component';
+import { BoardComponent } from './components/misc/board/board.component';
 
 import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 import { ShopCreateComponent } from './components/shops/shop-create/shop-create.component';
@@ -14,9 +15,11 @@ import { ProductItemComponent } from './components/products/product-item/product
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'shops', pathMatch: 'full'},
+
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  
+  { path: '', component: BoardComponent },
 
   { path: 'shops', component: ShopListComponent },
 
@@ -33,7 +36,7 @@ export const routes: Routes = [
               component: ShopItemComponent
           },
         ]
-    },
+  },
 
     { path: 'products', component: ProductListComponent },
     {

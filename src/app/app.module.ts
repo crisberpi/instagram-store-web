@@ -7,10 +7,13 @@ import { FormsModule } from '@angular/forms';
 import './rxjs.operators';
 
 import { AppComponent } from './app.component';
+
 import { NavBarComponent } from './components/misc/nav-bar/nav-bar.component';
 import { routes } from './app.routes';
 import { SignupComponent } from './components/misc/signup/signup.component';
 import { LoginComponent } from './components/misc/login/login.component';
+
+import { BoardComponent } from './components/misc/board/board.component';
 
 import { SessionService } from './shared/services/session.service';
 import { UsersService } from './shared/services/users.service';
@@ -29,6 +32,7 @@ import { ProductBaseComponent } from './components/products/product-base/product
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +49,7 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
     ProductCreateComponent,
     ProductItemComponent,
     ProductBaseComponent,
+    BoardComponent,
 
   ],
   imports: [
