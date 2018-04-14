@@ -9,12 +9,13 @@ export class Shop {
 
     public asFormData(): FormData {
         const data = new FormData();
+        data.append('direction', this.direction);
         data.append('name', this.name);
         for (let spec of this.specs) {
             data.append('specs', spec);
         }
         data.append('image', this.image);
-        data.append('direction', this.direction);
+        data.append('list', this.list);
 
         return data;
     }

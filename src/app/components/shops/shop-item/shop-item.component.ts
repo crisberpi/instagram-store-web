@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shop } from '../../../shared/model/shop.model';
 import { ShopsService } from './../../../shared/services/shops.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 
 @Component({
@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./shop-item.component.css']
 })
 export class ShopItemComponent implements OnInit {
-shop: Shop = new Shop();
+shop: Shop;
+error: Object;
 
   constructor(
     private router: Router,
@@ -19,11 +20,17 @@ shop: Shop = new Shop();
   ) { }
 
   ngOnInit() {
-    this.routes
-      .data
-      .subscribe(data => {
-        this.shop = data['shop'];
-      });
+    this.routes.params.subscribe((params: Params) => {
+      const shopId = params['id'];
+      this.shopsService.get(shopId)
+        .subscribe(shop => this.shop = shop);
+    })
+    // this.routes
+    //   .data
+    //   .subscribe(data => {
+    //     console.log(data)
+    //     this.shop = data['shop'];
+    //   });
   }
 
   onClickDelete() {
@@ -34,5 +41,7 @@ shop: Shop = new Shop();
         });
     }
   }
+
+
 
 }

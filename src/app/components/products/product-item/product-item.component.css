@@ -1,0 +1,5 @@
+.product-info, .product-thumbnail {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}

@@ -1,9 +1,6 @@
-<p>
-  shop-item works!
-</p>
 <div>
 
-  <div class="shop-info">
+  <div *ngIf="this.shop" class="shop-info">
     <h2> {{ shop.name }}</h2>
     <h3> {{ shop.list }} </h3>
     <img height="300" [src]="shop.image" />
@@ -16,4 +13,6 @@
     </div>
     <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
   </div>
+
+
 </div>
