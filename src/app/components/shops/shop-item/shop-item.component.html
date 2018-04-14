@@ -14,4 +14,14 @@
     <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
   </div>
 
+  <div *ngIf="this.shop" class="product-info">
+
+    
+    <ul *ngFor="let product of shop.products">
+      <li> {{ product.name }}</li>
+      <li> {{ product.price }} </li>
+      <li><img height="300" [src]="product.image" /></li>
+    </ul>
+  </div>
+
 </div>

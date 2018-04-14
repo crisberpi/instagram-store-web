@@ -1,13 +1,16 @@
-<p>
-  product-item works!
-</p>
 
-<!-- <div class="product-info">
+
+<div class="product-info">
   <h2> {{ product.name }}</h2>
   <h3> {{ product.price }} </h3>
   <img height="300" [src]="product.image" />
 
   <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
   <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
+
+  <button class="btn btn-danger" (click)="onClickAddShoppingCart()">Add Product</button>
+  <button class="btn btn-danger" (click)="onClickRemoveShoppingCart()">Remove Product</button>
+
+  <button [routerLink]="['/products', product.id]">Buy</button>
+
 </div>
-</div> -->

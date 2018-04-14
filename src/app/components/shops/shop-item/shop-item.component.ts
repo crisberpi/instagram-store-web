@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Shop } from '../../../shared/model/shop.model';
+import { Product } from '../../../shared/model/product.model';
 import { ShopsService } from './../../../shared/services/shops.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class ShopItemComponent implements OnInit {
 shop: Shop;
+products: Array<Product>;
 error: Object;
 
   constructor(
@@ -22,8 +24,12 @@ error: Object;
   ngOnInit() {
     this.routes.params.subscribe((params: Params) => {
       const shopId = params['id'];
-      this.shopsService.get(shopId)
-        .subscribe(shop => this.shop = shop);
+      this.shopsService.getShopProducts(shopId)
+        .subscribe((shop: Shop) => {
+          this.shop = shop;
+          //this.products = shop.products;
+        });
+
     })
     // this.routes
     //   .data

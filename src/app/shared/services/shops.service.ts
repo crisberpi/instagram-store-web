@@ -1,5 +1,6 @@
 import { BaseApiService } from './base-api.service';
 import { Shop } from '../model/shop.model';
+import { Product } from '../model/product.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, RequestMethod } from '@angular/http';
@@ -27,6 +28,12 @@ export class ShopsService extends BaseApiService {
 
   get(id: string): Observable<Shop> {
     return this.http.get(`${ShopsService.SHOPS_API}/${id}`, BaseApiService.defaultOptions)
+      .map((res: Response) => res.json())
+      .catch(error => this.handleError(error));
+  }
+
+  getShopProducts(id: string): Observable<Shop>  {
+    return this.http.get(`${ShopsService.SHOPS_API}/${id}/products`, BaseApiService.defaultOptions)
       .map((res: Response) => res.json())
       .catch(error => this.handleError(error));
   }
