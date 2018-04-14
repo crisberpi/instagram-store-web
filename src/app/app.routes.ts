@@ -3,9 +3,9 @@ import { SignupComponent } from './components/misc/signup/signup.component';
 import { LoginComponent } from './components/misc/login/login.component';
 import { BoardComponent } from './components/misc/board/board.component';
 
+import { ShopBaseComponent } from './components/shops/shop-base/shop-base.component';
 import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 import { ShopCreateComponent } from './components/shops/shop-create/shop-create.component';
-import { ShopBaseComponent } from './components/shops/shop-base/shop-base.component';
 import { ShopItemComponent } from './components/shops/shop-item/shop-item.component';
 
 import { ProductBaseComponent } from './components/products/product-base/product-base.component';
@@ -14,11 +14,14 @@ import { ProductCreateComponent } from './components/products/product-create/pro
 import { ProductItemComponent } from './components/products/product-item/product-item.component';
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
 
+import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
+
+
 export const routes: Routes = [
 
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  
+
   { path: '', component: BoardComponent },
 
   { path: 'shops', component: ShopListComponent },
@@ -57,4 +60,6 @@ export const routes: Routes = [
           },
   ]
 },
+
+    { path: 'shoppingCart', component: ShoppingCartListComponent },
 ];

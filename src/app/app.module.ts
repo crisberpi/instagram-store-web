@@ -19,6 +19,7 @@ import { SessionService } from './shared/services/session.service';
 import { UsersService } from './shared/services/users.service';
 import { ShopsService } from './shared/services/shops.service';
 import { ProductsService } from './shared/services/products.service';
+import { ShoppingCartService } from './shared/services/shoppingCart.service';
 
 import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 import { ShopCreateComponent } from './components/shops/shop-create/shop-create.component';
@@ -30,6 +31,8 @@ import { ProductCreateComponent } from './components/products/product-create/pro
 import { ProductItemComponent } from './components/products/product-item/product-item.component';
 import { ProductBaseComponent } from './components/products/product-base/product-base.component';
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
+
+import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
 
 
 
@@ -51,6 +54,8 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
     ProductBaseComponent,
     BoardComponent,
 
+    ShoppingCartListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,7 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
     SessionService,
     ShopsService,
     ProductsService,
+    ShoppingCartService,
     ProductDetailsResolverGuard,
   ],
   bootstrap: [AppComponent]

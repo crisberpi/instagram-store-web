@@ -1,0 +1,16 @@
+<p>
+  shopping-cart-list works!
+</p>
+
+<div *ngIf="this.shoppingCart" class="shop-info">
+  <h2> {{ shoppingCart.userEmail }}</h2>
+  <div *ngIf="shoppingCart.productsArray.length">
+    <h4> Products </h4>
+    <ul>
+      <li *ngFor="let productsArray of shoppingCart.productsArray"> {{ productsArray }} </li>
+    </ul>
+  </div>
+  <h3> {{ shoppingCart.totalPrice }} </h3>
+
+  <button class="btn btn-danger" (click)="onClickPay()">Pay</button>
+</div>
