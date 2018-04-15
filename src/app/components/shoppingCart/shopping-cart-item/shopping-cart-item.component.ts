@@ -33,6 +33,9 @@ export class ShoppingCartItemComponent implements OnInit {
     this.shoppingCartService.removeProductFromCart(item)
   }
 
+  // getTotal(): Observable<number> {
+  //   return this.shoppingCartService.getTotalAmount();
+  // }
 
 
 }

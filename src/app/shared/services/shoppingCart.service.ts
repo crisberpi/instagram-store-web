@@ -42,7 +42,13 @@ export class ShoppingCartService extends BaseApiService {
       .catch(error => this.handleError(error));
   }
 
-  
+  // getTotalAmount(): Observable<number> {
+  //   return this.itemsSubject.map((items: Product[]) => {
+  //     return items.reduce((prev, curr: Product) => {
+  //       return prev + curr.price;
+  //     }, 0);
+  //   });
+  // }
 
   pay(id: string): Observable<ShoppingCart> {
     return this.http.post(ShoppingCartService.SHOPPINGCART_API, ShoppingCart, new RequestOptions({ withCredentials: true }))
