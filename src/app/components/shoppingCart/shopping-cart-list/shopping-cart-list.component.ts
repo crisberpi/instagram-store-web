@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from './../../../shared/services/shoppingCart.service';
 import { ShoppingCart } from './../../../shared/model/shoppingCart.model';
+import { Product } from '../../../shared/model/product.model';
 
 @Component({
   selector: 'app-shopping-cart-list',
@@ -8,7 +9,7 @@ import { ShoppingCart } from './../../../shared/model/shoppingCart.model';
   styleUrls: ['./shopping-cart-list.component.css']
 })
 export class ShoppingCartListComponent implements OnInit {
-shoppingCart: Array<ShoppingCart> = [];
+shoppingCart: Array<Product> = [];
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 

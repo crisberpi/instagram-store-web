@@ -15,7 +15,8 @@ import { ProductItemComponent } from './components/products/product-item/product
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
 
 import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
-
+import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-cart-item/shopping-cart-item.component';
+import { ShoppingCartDetailsResolverGuard } from './shared/resolvers/shopping-cart-details-resolver.guard';
 
 export const routes: Routes = [
 
@@ -61,5 +62,15 @@ export const routes: Routes = [
   ]
 },
 
-    { path: 'shoppingCart', component: ShoppingCartListComponent },
+    {
+      path: 'shoppingCart',
+      component: ShoppingCartListComponent
+    },
+    {
+      path: ':id',
+      resolve: {
+          shoppingCart: ShoppingCartDetailsResolverGuard
+      },
+      component: ShoppingCartItemComponent
+    },
 ];

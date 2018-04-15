@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/model/product.model';
 import { ProductsService } from './../../../shared/services/products.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ShoppingCartService } from './../../../shared/services/shoppingCart.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-product-item',
@@ -15,7 +16,8 @@ export class ProductItemComponent implements OnInit {
   constructor(
     private router: Router,
     private routes: ActivatedRoute,
-    private productsService: ProductsService) { }
+    private productsService: ProductsService,
+    private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.routes
@@ -42,4 +44,9 @@ export class ProductItemComponent implements OnInit {
       });
   }
 
+  onClickAddShoppingCart(product: Product) {
+      this.shoppingCartService.addProductToCart(this.product);
+      console.log(this.product)
+      this.router.navigate(['/']);
+  }
 }
