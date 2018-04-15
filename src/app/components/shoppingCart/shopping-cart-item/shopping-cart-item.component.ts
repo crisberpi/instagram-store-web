@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCart } from '../../../shared/model/shoppingCart.model';
+// import { ShoppingCart } from '../../../shared/model/shoppingCart.model';
 import { ShoppingCartService } from './../../../shared/services/shoppingCart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Product} from '../../../shared/model/product.model';
+import {Observable} from 'rxjs';
+import {of} from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-shopping-cart-item',
@@ -10,32 +12,21 @@ import {Product} from '../../../shared/model/product.model';
   styleUrls: ['./shopping-cart-item.component.css']
 })
 export class ShoppingCartItemComponent implements OnInit {
-  shoppingCart: ShoppingCart = new ShoppingCart();
-  error: Object;
 
-  constructor(
-    private router: Router,
-    private routes: ActivatedRoute,
-    private shoppingCartService: ShoppingCartService
-  ) { }
+  public shoppingCartItems$: Observable<Product[]> = of([]);
+    public shoppingCartItems: Product[] = [];
 
-  ngOnInit() {
-    this.routes
-      .data
-      .subscribe(data => {
-        console.log(data);
-        this.shoppingCart = data['shoppingCart'];
-      });
-  }
+    constructor(private cartService: ShoppingCartService) {
+      this.shoppingCartItems$ = this
+        .cartService
+        .getItems();
 
-  removeProductFromCart(item: Product) {
-    console.log(item);
-    this.shoppingCartService.removeProductFromCart(item)
-  }
+      this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
+    }
 
-  // getTotal(): Observable<number> {
-  //   return this.shoppingCartService.getTotalAmount();
-  // }
+    ngOnInit() {
+    }
+
 
 
 }

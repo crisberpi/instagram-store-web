@@ -44,9 +44,14 @@ export class ProductItemComponent implements OnInit {
       });
   }
 
-  onClickAddShoppingCart(product: Product) {
-      this.shoppingCartService.addProductToCart(this.product);
-      console.log(this.product)
-      this.router.navigate(['/']);
-  }
+  public addToCart(product: Product) {
+     this.shoppingCartService.addToCart(product);
+     this.router.navigateByUrl('/');
+   }
+
+  // onClickAddShoppingCart(product: Product) {
+  //     this.shoppingCartService.addProductToCart(this.product);
+  //     console.log(this.product)
+  //     this.router.navigate(['/']);
+  // }
 }

@@ -32,8 +32,11 @@ import { ProductItemComponent } from './components/products/product-item/product
 import { ProductBaseComponent } from './components/products/product-base/product-base.component';
 import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-resolver.guard';
 
+
 import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
 import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-cart-item/shopping-cart-item.component';
+
+
 
 
 
@@ -58,6 +61,8 @@ import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-ca
     ShoppingCartListComponent,
     ShoppingCartItemComponent,
 
+
+
   ],
   imports: [
     BrowserModule,
@@ -65,6 +70,7 @@ import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-ca
     FormsModule,
     RouterModule.forRoot(routes)
   ],
+
   providers: [
     UsersService,
     SessionService,

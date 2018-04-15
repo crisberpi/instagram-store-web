@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from './../../../shared/services/shoppingCart.service';
-import { ShoppingCart } from './../../../shared/model/shoppingCart.model';
 import { Product } from '../../../shared/model/product.model';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
@@ -17,7 +16,7 @@ export class ShoppingCartListComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {
     this.shoppingCartItems$ = this
       .shoppingCartService
-      .list();
+      .getItems();
 
     this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
   }
@@ -25,5 +24,8 @@ export class ShoppingCartListComponent implements OnInit {
   ngOnInit() {
   }
 
+    public removeItem(item: Product) {
+      this.shoppingCartService.removeFromCart(item)
+    }
 
 }

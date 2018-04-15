@@ -1,14 +1,19 @@
-
+<!-- <div class="nav-bar">
+  <a routerLink="/">Back</a>
+</div> -->
 
 <div class="product-info">
   <h2> {{ product.name }}</h2>
-  <h3> {{ product.price }} </h3>
-  <img height="300" [src]="product.image" />
+  <h3 class="product-price"> {{ product.price }} </h3>
+  <img class="product-image" [src]="product.image" />
 
   <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
   <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
 
-  <button class="btn btn-danger" (click)="onClickAddShoppingCart()">Buy</button>
+  <button class="btn btn-danger" (click)="addToCart(product)">
+       Add to bag
+     </button>
+  <!-- <button class="btn btn-danger" (click)="onClickAddShoppingCart()">Buy</button> -->
 
   <p>Recent products added to</p>
 

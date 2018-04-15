@@ -1,3 +1,17 @@
+.list-products {
+  display: flex;
+
+  justify-content: center;
+
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
+
+.list-product {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .product {
     margin: 10px;
     text-align: center;

@@ -1,20 +1,18 @@
-<p>
-  shopping-cart-list works!
-</p>
 
 <p>You have {{shoppingCartItems.length}} items in your bag</p>
-<div *ngIf="this.shoppingCart" class="shop-info">
-  <h2> {{ shoppingCart.userEmail }}</h2>
-  <div *ngIf="shoppingCart.productsArray.length">
+
+  <div *ngFor="let item of shoppingCartItems">
     <h4> Products </h4>
-    <ul>
-      <li *ngFor="let productsArray of shoppingCart.productsArray"> {{ productsArray }} </li>
-    </ul>
+    <img [src]="item.image" />
+    <h3> {{ item.name }} </h3>
+    <p> {{ item.price }} </p>
+    <button class="remove-item" (click)="removeItem(item)">Remove</button>
   </div>
-  <h3> {{ shoppingCart.totalPrice }} </h3>
+
+  <p>Total: {{getTotal() | async}}</p>
 
   <button class="btn btn-danger" (click)="onClickPay()">Pay</button>
-</div>
+
 
 
 
