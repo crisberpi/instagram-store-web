@@ -1,51 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-  <div class="container-fluid">
+  <!-- Menu -->
+    <div class="wrap_menu">
+      <nav class="menu">
+        <ul class="main_menu">
+          <li>
+            <a class="navbar-brand" [routerLink]="['/']"><span>Instagram Store</span></a>
+            <ul class="sub_menu">
+              <li><a [routerLink]="['/shops']">Shops</a></li>
+              <li><a [routerLink]="['/products']">Products</a></li>
+            </ul>
+          </li>
 
+          <li class="sale-noti" *ngIf="!user">
+            <a [routerLink]="['/signup']">Signup</a>
+          </li>
 
+          <li class="sale-noti" *ngIf="user">
+          <a [routerLink]="['/favourites']">Your favourites shops<span class="sr-only">(current)</span></a>
+          </li>
 
-    <div>
-      <a class="navbar-brand" [routerLink]="['/']">
-        <span>Instagram Store</span>
+          <li *ngIf="!user">
+            <a [routerLink]="['/login']">Login</a>
+          </li>
+          <li *ngIf="user">
+            <a [routerLink]="['/shoppingCart']">Shopping Cart</a>
+          </li>
 
-      </a>
+          <li class="dropdown" *ngIf="user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.email }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a (click)="onClickLogout()">Logout</a>
+              </li>
+            </ul>
+          </li>
+
+          <li *ngIf="user">
+            <a a [routerLink]="['/orders']">Your Orders</a>
+          </li>
+
+    
+
+          <li class="open-shopping-cart" routerLink="/products/cart">
+            <i class="fa fa-shopping-cart">{{(shoppingCartItems$ | async).length}}</i>
+          </li>
+
+        </ul>
+      </nav>
     </div>
-
-    <div class="collapse navbar-collapse" >
-      <ul class="nav navbar-nav" *ngIf="user">
-        <li class="active">
-          <a [routerLink]="['/favourites']">Your favourites shops
-            <span class="sr-only">(current)</span>
-          </a>
-          <a [routerLink]="['/shoppingCart']">Shopping Cart</a>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!user">
-          <a [routerLink]="['/login']">Login</a>
-          <a [routerLink]="['/signup']">Signup</a>
-        </li>
-        <li class="dropdown" *ngIf="user">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.email }}
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a (click)="onClickLogout()">Logout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-
-    </div>
-
-          <div class="nav-bar">
-              
-              <div class="open-shopping-cart" routerLink="/products/cart">
-                <i class="fa fa-shopping-cart">{{(shoppingCartItems$ | async).length}}</i>
-              </div>
-        </div>
-
-</div>
-</nav>

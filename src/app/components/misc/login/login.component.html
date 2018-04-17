@@ -1,14 +1,18 @@
 
-<div class="row">
-  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+<div class="row d-flex justify-content-center">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
 
-    <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
+  <div class="text-center" data-gr-c-s-loaded="true">
+
+    <form class="form-signin"(ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
+      <img class="mb-4" src="https://hipertextual.com/files/2017/10/Instagram-1000x644.jpg" alt width="102" height="82">
+      <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
       <div class="form-group" [class.has-error]="email.errors && email.touched">
         <div class="input-group">
           <span class="input-group-addon">
             <i class="fa fa-user"></i>
           </span>
-          <input type="text" name="email" class="form-control" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required email>
+          <input type="text" name="email" class="form-control" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required email autofocus>
         </div>
         <label class="control-label" *ngIf="email.errors && email.touched">
           <ul>
@@ -39,7 +43,7 @@
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-block btn-primary" [disabled]="!loginForm.valid">Login</button>
+        <button type="submit" class="btn btn-secondary" [disabled]="!loginForm.valid">Login</button>
       </div>
     </form>
 
@@ -55,4 +59,39 @@
       </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="http://pencatering.com.au/wp-content/uploads/2018/01/light-grey-background.png" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+      <h5>Instagram store</h5>
+      <p>All the clothes that you could buy in any Fashion Instagram Shops</p>
+      <a [routerLink]="['/shops']" class="btn btn-outline-secondary">Shop Now</a>
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://blog.lamasmona.com/wp-content/uploads/2016/06/panambi-bardot1.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://cdn01.cdn.justjaredjr.com/wp-content/uploads/2015/07/shay-revolve/shay-mitchell-revolve-party-hamptons-06.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
