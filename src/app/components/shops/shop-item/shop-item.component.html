@@ -1,5 +1,5 @@
-<div>
 
+<div class="container">
   <div *ngIf="this.shop" class="shop-info">
     <h2> {{ shop.name }}</h2>
     <h3> {{ shop.list }} </h3>
@@ -12,16 +12,20 @@
       </ul>
     </div>
     <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
+    <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
+  </div>
   </div>
 
-  <div *ngIf="this.shop" class="product-info">
 
-    
-    <ul *ngFor="let product of shop.products">
-      <li> {{ product.name }}</li>
-      <li> {{ product.price }} </li>
-      <li><img height="300" [src]="product.image" /></li>
-    </ul>
-  </div>
-
+  <div class="container-fluid bg-3 text-center">
+    <h3 class="margin">Products</h3><br>
+    <div class="row">
+        <div *ngIf="this.shop" class="product-info">
+          <div *ngFor="let product of shop.products" class="col-sm-4">
+            <img class="img-responsive margin" style="width:100%" alt="Image" [src]="product.image" />
+            <p> {{ product.name }}</p>
+            <small> {{ product.price }} </small>
+          </div>
+        </div>
+</div>
 </div>

@@ -1,30 +1,65 @@
 
 <p>You have {{shoppingCartItems.length}} items in your bag</p>
-
-  <div *ngFor="let item of shoppingCartItems">
-    <h4> Products </h4>
-    <img [src]="item.image" />
-    <h3> {{ item.name }} </h3>
-    <p> {{ item.price }} </p>
-    <button class="remove-item" (click)="removeItem(item)">Remove</button>
-  </div>
-
   <p>Total: {{getTotal() | async}}</p>
 
-  <button class="btn btn-danger" (click)="onClickPay()">Pay</button>
-
-
-
-
-
-<!-- <div *ngFor="let item of shoppingCartItems">
-  <spa-product
-    [id]="item.id"
-    [name]="item.name"
-    [price]="item.price"
-    [currency]="item.currency">
-  </spa-product>
-  <spa-color-list [colors]="item.colors"></spa-color-list>
-  <button class="remove-item" (click)="removeItem(item)">Remove</button>
+  <div class="container">
+    <div class="row">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                      <div class="container">
+                        <div class="row">
+                        <div class="col col-lg-2"><th>Image</th></div>
+                        <div class="col-md-auto"><th >Product</th></div>
+                        <div class="col col-lg-2"><th >Price</th></div>
+                      
 </div>
-<p>Total: {{getTotal() | async}}</p> -->
+</div>
+                    </tr>
+                </thead>
+
+                <tbody>
+                  <div *ngFor="let item of shoppingCartItems">
+                    <tr>
+<div class="container">
+  <div class="row">
+                        <div class="col col-lg-2 text-center"><td>
+                              <a class="thumbnail" href="#"> <img class="media-object" [src]="item.image" style="width: 72px; height: 72px;"> </a>
+
+                        </td></div>
+
+                        <div class="col-md-auto"><td><strong>{{ item.name }}</strong></td></div>
+                        <div class="col col-lg-2"><td><strong>{{ item.price }}</strong></td></div>
+                        <td>
+                          <button class="remove-item btn btn-danger" (click)="removeItem(item)">Remove</button>
+                        </td>
+</div>
+</div>
+                    </tr>
+              </div>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+<td>   </td>
+                        <td><h5>Subtotal<br>Estimated shipping</h5><h3>Total</h3></td>
+                        <td class="text-right"><h5><strong>$24.59<br>$6.94</strong></h5><h3>Total: {{getTotal() | async}}</h3></td>
+                    </tr>
+                    <tr>
+
+                        <td>   </td>
+
+                        <td>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></td>
+                        <td>
+                      <button class="btn btn-success" (click)="onClickPay()">Checkout</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+    </div>
+</div>
+
+

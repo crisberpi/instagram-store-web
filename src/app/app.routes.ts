@@ -17,6 +17,7 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
 
 import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
 import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-cart-item/shopping-cart-item.component';
+import { ShoppingCartPaypalComponent } from './components/shoppingCart/shopping-cart-paypal/shopping-cart-paypal.component';
 
 
 export const routes: Routes = [
@@ -70,5 +71,9 @@ export const routes: Routes = [
     {
       path: ':id',
       component: ShoppingCartItemComponent
+    },
+    {
+      path: 'paypal',
+      component: ShoppingCartPaypalComponent
     },
 ];

@@ -48,6 +48,13 @@ error: Object;
     }
   }
 
+  onClickEdit(shop) {
+    this.shopsService.edit(this.shop)
+      .subscribe(() => {
+        this.router.navigate(['/shops/:id']);
+      });
+  }
+
 
 
 }

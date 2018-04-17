@@ -35,6 +35,7 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
 
 import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
 import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-cart-item/shopping-cart-item.component';
+import { ShoppingCartPaypalComponent } from './components/shoppingCart/shopping-cart-paypal/shopping-cart-paypal.component';
 
 
 
@@ -60,6 +61,7 @@ import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-ca
 
     ShoppingCartListComponent,
     ShoppingCartItemComponent,
+    ShoppingCartPaypalComponent,
 
 
 
