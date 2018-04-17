@@ -8,11 +8,13 @@ import {of} from 'rxjs/observable/of';
 
 @Injectable()
 
-export class ShoppingCartService {
+export class ShoppingCartService extends BaseApiService {
   private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
   private itemsInCart: Product[] = [];
+  private static readonly SHOPPINGCART_API = `${BaseApiService.BASE_API}/shoppingCart`;
 
-  constructor() {
+  constructor(private http: Http) {
+    super();
     this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
 
@@ -29,8 +31,8 @@ export class ShoppingCartService {
      const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
      this.itemsInCartSubject.next(itemsWithoutRemoved);
    }
-   
-}
+
+
 
 //
 // export class ShoppingCartService extends BaseApiService {
@@ -76,10 +78,10 @@ export class ShoppingCartService {
 //   //   });
 //   // }
 //
-//   pay(id: string): Observable<ShoppingCart> {
-//     return this.http.post(ShoppingCartService.SHOPPINGCART_API, ShoppingCart, new RequestOptions({ withCredentials: true }))
-//       .map((res: Response) => res.json())
-//       .catch(error => this.handleError(error));
-//   }
-//
-// }
+  pay(id: string, data) {
+    return this.http.post(`${ShoppingCartService.SHOPPINGCART_API}/${id}/pay`, data, BaseApiService.defaultOptions)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+}
