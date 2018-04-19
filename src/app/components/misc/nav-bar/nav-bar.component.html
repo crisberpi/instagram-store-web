@@ -40,7 +40,11 @@
             <a a [routerLink]="['/orders']">Your Orders</a>
           </li>
 
-    
+          <li *ngIf="!user">
+            <a a [routerLink]="['/new']">Register a new shop</a>
+          </li>
+
+
 
           <li class="open-shopping-cart" routerLink="/products/cart">
             <i class="fa fa-shopping-cart">{{(shoppingCartItems$ | async).length}}</i>

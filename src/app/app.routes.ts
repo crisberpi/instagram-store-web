@@ -28,15 +28,12 @@ export const routes: Routes = [
   { path: '', component: BoardComponent },
 
   { path: 'shops', component: ShopListComponent },
+  {path: 'new',component: ShopCreateComponent},
 
   {
       path: 'shops',
       component: ShopBaseComponent,
       children: [
-          {
-              path: 'new',
-              component: ShopCreateComponent
-          },
           {
               path: ':id',
               component: ShopItemComponent

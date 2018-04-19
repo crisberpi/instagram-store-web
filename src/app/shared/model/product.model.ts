@@ -4,8 +4,9 @@ export class Product {
     id: string;
     price: string;
     name: string;
+    description?: string;
     image?: string;
-    currency?: string;
+
 
 
 

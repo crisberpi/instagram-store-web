@@ -1,32 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-// import { ShoppingCart } from '../../../shared/model/shoppingCart.model';
-import { ShoppingCartService } from './../../../shared/services/shoppingCart.service';
+import { Shop } from '../../../shared/model/shop.model';
+import { User } from '../../../shared/model/user.model';
+import { ShopsService } from './../../../shared/services/shops.service';
+import { SessionService } from './../../../shared/services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Product} from '../../../shared/model/product.model';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart-item',
   templateUrl: './shopping-cart-item.component.html',
   styleUrls: ['./shopping-cart-item.component.css']
 })
-export class ShoppingCartItemComponent implements OnInit {
+export class ShoppingCartItemComponent  {
 
-  public shoppingCartItems$: Observable<Product[]> = of([]);
-    public shoppingCartItems: Product[] = [];
+      shop: Shop = new Shop();
+      user: User;
 
-    constructor(private cartService: ShoppingCartService) {
-      this.shoppingCartItems$ = this
-        .cartService
-        .getItems();
+    constructor(private shopService: ShopsService,
+      private sessionService: SessionService,
+      private router: Router,) {
 
-      this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
     }
 
-    ngOnInit() {
+    ngOnInit(){
+      this.user = this.sessionService.getUser();
     }
 
 
-
-}
+    onSubmitShop(shopForm: NgForm ) {
+        this.shopService.create(this.shop)
+          .subscribe((shop) => {
+            shopForm.reset();
+            this.router.navigate(['/shops']);
+          });
+      }
+    }

@@ -1,13 +1,15 @@
 
 <div class="container-fluid bg-3 text-center">
-  <h3 class="margin">Products</h3><br>
-  <div class="row">
+  <h3 class="margin">Productos</h3><br>
+  <p class="margin">Compra todos los productos que quieras sin importar la tienda</p><br>
+  <div class="container row">
     <div  *ngFor="let product of products" class="col-sm-4">
 
-      <img class="img-responsive margin" style="width:100%" alt="Image" [src]="product.image" />
+      <img  [routerLink]="['/products', product.id]"class="img-responsive margin" style="width:100%" alt="Image" [src]="product.image" />
+      <div class="content">
       <p> {{product.name}}</p>
-      <small>{{product.price}}</small><br>
-      <a [routerLink]="['/products', product.id]"> View Details </a>
+      <small>{{product.price}} EUR</small><br>
+        </div>
     </div>
 
   </div>

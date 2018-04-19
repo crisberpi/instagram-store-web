@@ -1,31 +1,47 @@
 
-<div class="container">
+
+<div class="container-fluid bg-3 text-center">
   <div *ngIf="this.shop" class="shop-info">
     <h2> {{ shop.name }}</h2>
-    <h3> {{ shop.list }} </h3>
-    <img height="300" [src]="shop.image" />
 
+    <div class="container">
+        <img height="300" [src]="shop.image" />
+        <div class="content">
+        <a (click)="onClickFavorite()">Guardar</a>
+          </div>
+      </div>
     <div *ngIf="shop.specs.length">
-      <h4> Features </h4>
+      <h4> Tipo de ropa </h4>
       <ul>
         <li *ngFor="let spec of shop.specs"> {{ spec }} </li>
       </ul>
     </div>
     <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
-    <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
+    <button class="btn btn-danger" (click)="onClickCreate()">Create</button>
   </div>
   </div>
 
 
-  <div class="container-fluid bg-3 text-center">
-    <h3 class="margin">Products</h3><br>
-    <div class="row">
-        <div *ngIf="this.shop" class="product-info">
-          <div *ngFor="let product of shop.products" class="col-sm-4">
-            <img class="img-responsive margin" style="width:100%" alt="Image" [src]="product.image" />
-            <p> {{ product.name }}</p>
-            <small> {{ product.price }} </small>
-          </div>
-        </div>
+<div class="container-fluid bg-3 text-center">
+<p>___________________________________________________</p>
+  <h3 class="margin">Productos</h3><br>
+  <p class="margin">Añade cualquier producto de esta tienda a tu carrito de compra</p><br>
 </div>
+
+
+<div class="container-fluid bg-3 text-center">
+  <div class="row">
+    <div *ngIf="this.shop" class="col-lg-4">
+      <div  *ngFor="let product of shop.products" >
+
+        <img class="img-responsive margin" style="width:100%" alt="Image" [src]="product.image" />
+        <p> {{product.name}} - {{product.price}} EUR</p>
+        <small></small><br>
+        <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
+        <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
+
+        <button class="btn btn-danger" (click)="addToCart(product)">Add to bag</button>
+      </div>
+    </div>
+  </div>
 </div>

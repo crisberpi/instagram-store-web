@@ -1,14 +1,13 @@
 
-
-
 <div class="container-fluid bg-3 text-center">
-  <h3 class="margin">Shops</h3><br>
+  <h3 class="margin">Tiendas</h3><br>
+  <p class="margin">Sigue tus tiendas favoritas de Instagram y no te pierdas ninguna novedad</p><br>
   <div class="row">
     <div  *ngFor="let shop of shops"  class="col-sm-4">
       <img class="img-responsive margin" style="width:100%" alt="Image" [src]="shop.image" />
       <p> {{ shop.name }}</p>
       <small> {{ shop.direction }}</small><br>
-      <a [routerLink]="['/shops', shop.id]"> Products </a>
+      <a [routerLink]="['/shops', shop.id]">Ver productos</a>
     </div>
 
   </div>

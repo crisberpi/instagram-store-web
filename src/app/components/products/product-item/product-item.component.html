@@ -1,20 +1,22 @@
-<!-- <div class="nav-bar">
-  <a routerLink="/">Back</a>
-</div> -->
-
+<div class="container-fluid bg-3 text-center">
 <div class="product-info">
-  <h2> {{ product.name }}</h2>
-  <h3 class="product-price"> {{ product.price }} </h3>
-  <img class="product-image" [src]="product.image" />
 
-  <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
-  <button class="btn btn-danger" (click)="onClickEdit()">Edit</button>
+
+  <img class="product-image product-thumbnail" [src]="product.image" />
+  <h2> {{ product.name }}</h2>
+  <p> {{ product.description }}</p>
+  <small class="product-price"> {{ product.price }} EUR</small>
+
+</div>
+</div>
+
+
+  <div class="container-fluid bg-3 text-center">
+  <button class="btn btn-secondary" (click)="onClickDelete()">Delete</button>
+  <button class="btn btn-secondary" (click)="onClickEdit()">Edit</button>
 
   <button class="btn btn-danger" (click)="addToCart(product)">
        Add to bag
      </button>
+     </div>
   <!-- <button class="btn btn-danger" (click)="onClickAddShoppingCart()">Buy</button> -->
-
-  <p>Recent products added to</p>
-
-</div>

@@ -39,10 +39,11 @@ export class ProductsService extends BaseApiService {
   }
 
   edit(product: Product): Observable<Product> {
-    return this.http.put(`ProductsService.PRODUCTS_API/${product.id}`, product.asFormData(), new RequestOptions({ withCredentials: true }))
+    return this.http.put(`ProductsService.PRODUCTS_API/${product.id}`, JSON.stringify(product), new RequestOptions({ withCredentials: true }))
       .map((res: Response) => res.json())
       .catch(error => this.handleError(error));
   }
+
 
   delete(id: string): Observable<void> {
     return this.http.delete(`${ProductsService.PRODUCTS_API}/${id}`, BaseApiService.defaultOptions)

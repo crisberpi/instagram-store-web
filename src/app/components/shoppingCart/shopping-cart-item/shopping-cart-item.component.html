@@ -1,6 +1,28 @@
 <p>
   shopping-cart-item works!
 </p>
+
+
+  <form (ngSubmit)="onSubmitShop(shopForm)" #shopForm="ngForm">
+    <div class="form-group" [class.has-error]="name.errors && name.touched">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-fire"></i>
+        </span>
+        <input type="text" name="name" class="form-control" placeholder="Shop" [(ngModel)]="shop.name" #name="ngModel" required>
+      </div>
+      <label class="control-label" *ngIf="name.errors && name.touched">
+        <ul>
+          <li *ngIf="name.errors.required">Required</li>
+        </ul>
+      </label>
+    </div>
+<input type="hidden" name="user_id" value="${user.id}">
+    <div class="form-actions">
+      <button type="submit" class="btn btn-block btn-primary" [disabled]="!shopForm.valid">Add Shop</button>
+    </div>
+    <span>{{user.id}}</span>
+</form>
 <!-- <p>You have {{shoppingCartItems.length}} items in your bag</p> -->
 <!-- <div *ngFor="let item of shoppingCart">
 

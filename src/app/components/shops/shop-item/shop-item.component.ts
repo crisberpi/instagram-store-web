@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Shop } from '../../../shared/model/shop.model';
+import { User } from '../../../shared/model/user.model';
 import { Product } from '../../../shared/model/product.model';
 import { ShopsService } from './../../../shared/services/shops.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
@@ -12,6 +13,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class ShopItemComponent implements OnInit {
 shop: Shop;
+user: User;
 products: Array<Product>;
 error: Object;
 
@@ -48,8 +50,11 @@ error: Object;
     }
   }
 
-  onClickEdit(shop) {
-    this.shopsService.edit(this.shop)
+
+
+
+  onClickFavorite(shop) {
+    this.shopsService.like(this.user.id)
       .subscribe(() => {
         this.router.navigate(['/shops/:id']);
       });
