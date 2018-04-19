@@ -2,11 +2,14 @@ import { Routes } from '@angular/router';
 import { SignupComponent } from './components/misc/signup/signup.component';
 import { LoginComponent } from './components/misc/login/login.component';
 import { BoardComponent } from './components/misc/board/board.component';
+import { UserBaseComponent } from './components/misc/user-base/user-base.component';
 
 import { ShopBaseComponent } from './components/shops/shop-base/shop-base.component';
 import { ShopListComponent } from './components/shops/shop-list/shop-list.component';
 import { ShopCreateComponent } from './components/shops/shop-create/shop-create.component';
 import { ShopItemComponent } from './components/shops/shop-item/shop-item.component';
+import { ShopEditComponent } from './components/shops/shop-edit/shop-edit.component';
+import { FavouritesComponent } from './components/shops/favourites/favourites.component';
 
 import { ProductBaseComponent } from './components/products/product-base/product-base.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
@@ -28,7 +31,31 @@ export const routes: Routes = [
   { path: '', component: BoardComponent },
 
   { path: 'shops', component: ShopListComponent },
-  {path: 'new',component: ShopCreateComponent},
+
+  {
+      path: 'users',
+      component: UserBaseComponent,
+      children: [
+          {
+              path: ':id',
+              component: FavouritesComponent
+          },
+        ]
+  },
+
+  {
+      path: 'new',
+      component: ShopCreateComponent,
+      children: [
+          {
+              path: ':id',
+              component: ShopEditComponent
+          },
+        ]
+  },
+
+
+
 
   {
       path: 'shops',

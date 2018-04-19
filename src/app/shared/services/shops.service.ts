@@ -33,6 +33,12 @@ export class ShopsService extends BaseApiService {
       .catch(error => this.handleError(error));
   }
 
+  editOne(id: string): Observable<Shop> {
+    return this.http.get(`${ShopsService.SHOPS_API}/new/${id}`, BaseApiService.defaultOptions)
+      .map((res: Response) => res.json())
+      .catch(error => this.handleError(error));
+  }
+
   like(id: string): Observable<Shop> {
     return this.http.get(`${ShopsService.SHOPS_API}/${id}/like`, BaseApiService.defaultOptions)
       .map((res: Response) => res.json())

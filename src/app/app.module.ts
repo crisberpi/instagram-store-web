@@ -36,6 +36,9 @@ import { ProductDetailsResolverGuard } from './shared/resolvers/product-details-
 import { ShoppingCartListComponent } from './components/shoppingCart/shopping-cart-list/shopping-cart-list.component';
 import { ShoppingCartItemComponent } from './components/shoppingCart/shopping-cart-item/shopping-cart-item.component';
 import { ShoppingCartPaypalComponent } from './components/shoppingCart/shopping-cart-paypal/shopping-cart-paypal.component';
+import { ShopEditComponent } from './components/shops/shop-edit/shop-edit.component';
+import { FavouritesComponent } from './components/shops/favourites/favourites.component';
+import { UserBaseComponent } from './components/misc/user-base/user-base.component';
 
 
 
@@ -62,6 +65,9 @@ import { ShoppingCartPaypalComponent } from './components/shoppingCart/shopping-
     ShoppingCartListComponent,
     ShoppingCartItemComponent,
     ShoppingCartPaypalComponent,
+    ShopEditComponent,
+    FavouritesComponent,
+    UserBaseComponent,
 
 
 

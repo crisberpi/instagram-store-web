@@ -32,9 +32,19 @@ export class ShoppingCartService extends BaseApiService {
      this.itemsInCartSubject.next(itemsWithoutRemoved);
    }
 
+     // getTotalAmount(): Observable<number> {
+     //   return this.itemsInCartSubject.map((items) => {
+     //     return items.reduce((prev, curr: Product) => {
+     //       return prev + curr.price;
+     //     }, 0);
+     //   });
+     // }
 
 
-//
+
+
+
+
 // export class ShoppingCartService extends BaseApiService {
 //   private static readonly SHOPPINGCART_API = `${BaseApiService.BASE_API}/shoppingCart`;
 //
@@ -59,7 +69,7 @@ export class ShoppingCartService extends BaseApiService {
 //   }
 //
 //   addProductToCart(item: Product): Observable<Product> {
-//     return this.http.post(ShoppingCartService.SHOPPINGCART_API, ShoppingCart, new RequestOptions({ withCredentials: true }))
+//     return this.http.post(ShoppingCartService.SHOPPINGCART_API, item, new RequestOptions({ withCredentials: true }))
 //       .map((res: Response) => res.json())
 //       .catch(error => this.handleError(error));
 //   }
@@ -70,14 +80,21 @@ export class ShoppingCartService extends BaseApiService {
 //       .catch(error => this.handleError(error));
 //   }
 //
-//   // getTotalAmount(): Observable<number> {
-//   //   return this.itemsSubject.map((items: Product[]) => {
-//   //     return items.reduce((prev, curr: Product) => {
-//   //       return prev + curr.price;
-//   //     }, 0);
-//   //   });
-//   // }
+//   getTotalAmount(): Observable<number> {
+//     return this.itemsSubject.map((items: Product[]) => {
+//       return items.reduce((prev, curr: Product) => {
+//         return prev + curr.price;
+//       }, 0);
+//     });
+//   }
 //
+//   private calculateCart(cart: ShoppingCart): void {
+//   cart.itemsTotal = cart.items
+//                         .map((item) =>  this.items.find((p) => p.id === item.productId).price)
+//                         .reduce((previous, current) => previous + current, 0);
+//
+// }
+
   pay(id: string, data) {
     return this.http.post(`${ShoppingCartService.SHOPPINGCART_API}/${id}/pay`, data, BaseApiService.defaultOptions)
       .map(response => response.json())

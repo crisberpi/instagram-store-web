@@ -20,8 +20,8 @@ export class ShoppingCartListComponent implements OnInit {
   public shoppingCartItems$: Observable<Product[]> = of([]);
   public shoppingCartItems: Product[] = [];
   payment: Payment = {
-    name: 'Falda',
-    price: '34'
+    name: 'vestido',
+    price: '225'
   };
   user: User;
 
@@ -34,6 +34,9 @@ export class ShoppingCartListComponent implements OnInit {
       .getItems();
 
     this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
+
+
+
   }
 
   ngOnInit() {
@@ -43,6 +46,8 @@ export class ShoppingCartListComponent implements OnInit {
   public removeItem(item: Product) {
     this.shoppingCartService.removeFromCart(item)
   }
+
+
 
   private onClickPay () {
     this.shoppingCartService.pay(this.user.id, this.payment)
