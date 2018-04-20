@@ -11,7 +11,8 @@ export class Shop {
     public asFormData(): FormData {
         const data = new FormData();
         data.append('name', this.name);
-
+        data.append('direction', this.direction)
+        data.append('list', this.list)
         return data;
     }
 }

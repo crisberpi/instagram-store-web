@@ -17,7 +17,7 @@ product: Product = new Product();
     private productsService: ProductsService
   ) { }
 
-    onSubmitShop(productForm: NgForm) {
+    onSubmitProduct(productForm: NgForm) {
       this.productsService.create(this.product)
         .subscribe((phone) => {
           productForm.reset();

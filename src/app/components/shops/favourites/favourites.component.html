@@ -5,11 +5,20 @@
 <p>{{user.favourite}}</p>
 
 <div class="container-fluid bg-3 text-center">
-  <div *ngFor="let user of userlist">
+
+  <div *ngIf="user.favourite.length == 0">
+    <p>Aún no tienes favoritos</p>
+  </div>
+
+  <div *ngFor="let fav of user.favourite">
+      <p>{{ fav }}</p>
+    </div>
+
+  <!-- <div *ngFor="let user of userlist">
        <p>{{user.email}} - {{user.favourite[0]?.name}}<p>
   </div>
     <h2> {{ user.email }}</h2>
-    <h2> {{ user.favourite.name }}</h2>
+    <h2> {{ user.favourite.name }}</h2> -->
 
         <img height="300" [src]="user.favourite.image" />
 

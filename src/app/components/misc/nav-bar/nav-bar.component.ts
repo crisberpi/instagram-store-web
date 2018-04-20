@@ -29,7 +29,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.shoppingCartItems$ = this
          .shoppingCartService
          .getItems();
-
+  
        this.shoppingCartItems$.subscribe(_ => _);
      }
 
